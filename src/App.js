@@ -8,7 +8,7 @@ import CardComponents from "./components/CardComponents";
 import "./components/customStyle.css";
 
 const App = () => {
-  const [houseList, setHouseList] = useState([
+  const [houseList] = useState([
     {
       image: "https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       location: "Ngemplak, Yogyakarta",
@@ -57,7 +57,7 @@ const App = () => {
       <Hero />
 
       <div className="mx-3">
-        <div class="row align-items-center my-2">
+        <div class="row align-items-center my-4">
           <div class="col-6">
             <h2 className="display-4 fw-light m-2">Upgrade Your Model.</h2>
           </div>
@@ -69,7 +69,6 @@ const App = () => {
             </p>
           </div>
         </div>
-        {/* <div class="p-3"> */}
         <div class="row flex-nowrap overflow-auto">
           {houseList.map(
             (
