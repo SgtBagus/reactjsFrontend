@@ -1,0 +1,32 @@
+.logoHeader {
+    height: 24px;
+    width: 155px;
+}
+
+.navbar-toggler {
+    padding: var(--bs-navbar-toggler-padding-y) var(--bs-navbar-toggler-padding-x);
+    font-size: var(--bs-navbar-toggler-font-size);
+    line-height: 1;
+    color: #475467 !important;
+    background-color: #475467 !important;
+    border: var(--bs-border-width) solid #475467 !important;
+}
+
+.navbar-nav {
+    --bs-nav-link-color: #475467 !important;
+    --bs-nav-link-hover-color: #429BF4 !important;
+    --bs-nav-link-disabled-color: #797e86 !important;
+}
+
+.navbar-nav .nav-link.active, .navbar-nav .nav-link.show {
+    color: #429BF4 !important;
+    font-weight: bolder;
+}
+
+.active-bold-text {
+    color: #429BF4 !important;
+}
+
+.score-number {
+    color: #264968;
+}
