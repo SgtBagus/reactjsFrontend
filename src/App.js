@@ -1,62 +1,105 @@
+import { useState } from "react";
+
 import Header from "./components/Header";
+import Footer from "./components/Footer";
+import Hero from "./components/Hero";
+import CardComponents from "./components/CardComponents";
+
+import "./components/customStyle.css";
 
 const App = () => {
+  const [houseList, setHouseList] = useState([
+    {
+      image: "https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      location: "Ngemplak, Yogyakarta",
+      titleHouse: "Base 1",
+      bedRoomCount: "3 Bedrooms",
+      prelaunchStatus: "Available",
+      desc: "Hunian nyaman dengan desain modern di lokasi strategis.",
+    },
+    {
+      image: "https://images.pexels.com/photos/186077/pexels-photo-186077.jpeg",
+      location: "Sleman, Yogyakarta",
+      titleHouse: "Base 2",
+      bedRoomCount: "2 Bedrooms",
+      prelaunchStatus: "Coming Soon",
+      desc: "Rumah minimalis dengan pemandangan indah pegunungan.",
+    },
+    {
+      image: "https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      location: "Ubud, Bali",
+      titleHouse: "Base 3",
+      bedRoomCount: "4 Bedrooms",
+      prelaunchStatus: "Sold Out",
+      desc: "Hunian luas yang cocok untuk keluarga besar.",
+    },
+    {
+      image: "https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      location: "Canggu, Bali",
+      titleHouse: "Base 4",
+      bedRoomCount: "2 Bedrooms",
+      prelaunchStatus: "Available",
+      desc: "Rumah dengan suasana asri dekat dengan pusat kota.",
+    },
+    {
+      image: "https://images.pexels.com/photos/280229/pexels-photo-280229.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      location: "Bandung, Jawa Barat",
+      titleHouse: "Base 5",
+      bedRoomCount: "3 Bedrooms",
+      prelaunchStatus: "Coming Soon",
+      desc: "Hunian eksklusif di area wisata populer.",
+    },
+  ]);
+
   return (
     <div className="App">
       <Header />
+      <Hero />
 
-      <div class="row pb-0 pe-lg-0 pt-lg-5align-items-center">
-        <div class="col-lg-6 p-3 p-lg-5 pt-lg-5">
-          <h1 class="display-4 fw-bold lh-1">
-            Let’s Find The Most{" "}
-            <span className="active-bold-text">Suitable Home</span> For You !
-          </h1>
-          <p class="fs-5 mt-3">
-            We offer the best resident for you with a strategic location and the
-            best home developer. Find your home right now !
-          </p>
-
-          <div class="d-flex justify-content-start align-items-center">
-            <div className="m-2">
-              <div class="d-flex align-items-center w-50">
-                <p className="fw-bold fs-2 m-0 score-number">29</p>
-                <div className="ms-2 fs-6"> Success Partners</div>
-              </div>
-            </div>
-            <div className="m-2">
-              <div class="d-flex align-items-center w-50">
-                <p className="fw-bold fs-2 m-0 score-number">92+</p>
-                <div className="ms-2 fs-6"> Strategic Location</div>
-              </div>
-            </div>
-            <div className="m-2">
-              <div class="d-flex align-items-center w-50">
-                <p className="fw-bold fs-2 m-0 score-number">120K</p>
-                <div className="ms-2 fs-6"> Satisfying Customer</div>
-              </div>
-            </div>
+      <div className="mx-3">
+        <div class="row align-items-center my-2">
+          <div class="col-6">
+            <h2 className="display-4 fw-light m-2">Upgrade Your Model.</h2>
           </div>
-
-          <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
-            <button
-              type="button"
-              class="btn btn-primary btn-lg px-4 me-md-2 fw-bold"
-            >
-              Primary
-            </button>
-            <button type="button" class="btn btn-outline-secondary btn-lg px-4">
-              Default
-            </button>
+          <div class="col-6">
+            <p className="m-2">
+              Enhance your model with pre-designed add-ons like the Base Deck
+              and the Base Deck+. Additional items are also available through
+              key partnerships.
+            </p>
           </div>
         </div>
-        <div class="col-lg-5 offset-lg-1 p-0 overflow-hidden">
-          <img
-            src={process.env.PUBLIC_URL + "/img/heroImg.png"}
-            alt="Logo"
-            style={{ objectFit: "cover" }}
-          />
+        {/* <div class="p-3"> */}
+        <div class="row flex-nowrap overflow-auto">
+          {houseList.map(
+            (
+              {
+                image,
+                location,
+                titleHouse,
+                bedRoomCount,
+                prelaunchStatus,
+                desc,
+              },
+              idx
+            ) => (
+              <div class="col-4 my-2">
+                <CardComponents
+                  key={idx}
+                  image={image}
+                  location={location}
+                  titleHouse={titleHouse}
+                  bedRoomCount={bedRoomCount}
+                  prelaunchStatus={prelaunchStatus}
+                  desc={desc}
+                />
+              </div>
+            )
+          )}
         </div>
       </div>
+
+      <Footer />
     </div>
   );
 };
